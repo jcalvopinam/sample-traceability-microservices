@@ -30,36 +30,38 @@ import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
 import java.util.Random;
+import java.util.stream.IntStream;
 
 /**
  * @author Juan Calvopina M. <juan.calvopina@gmail.com>
  */
 @Service
-public class CommonServiceImpl implements CommonService {
+public class DummyServiceImpl implements DummyService {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(CommonServiceImpl.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(DummyServiceImpl.class);
 
     private Random random = new Random();
 
     @Override
-    public Integer genetateRandomNumbers() {
+    public Integer generateRandomNumbers() {
         LOGGER.info("Generating a new random number");
-        return random.nextInt();
+        return Math.abs(random.nextInt());
     }
 
     @Override
     public String generateRandomWords() {
-        int numberOfWords = 5;
-        String[] randomStrings = new String[numberOfWords];
+        LOGGER.info("Generating a new random word");
+        int endExclusive = 5;
+        String[] randomStrings = new String[endExclusive];
 
-        for (int i = 0; i < numberOfWords; i++) {
-            char[] word = new char[random.nextInt(
-                    8) + 3]; // words of length 3 through 10. (1 and 2 letter words are boring.)
-            for (int j = 0; j < word.length; j++) {
-                word[j] = (char) ('a' + random.nextInt(26));
-            }
-            randomStrings[i] = new String(word);
-        }
+        int startInclusive = 0;
+        IntStream.range(startInclusive, endExclusive)
+                 .forEach(i -> {
+                     char[] word = new char[random.nextInt(8) + 3];
+                     IntStream.range(0, word.length)
+                              .forEach(j -> word[j] = (char) ('a' + random.nextInt(26)));
+                     randomStrings[i] = new String(word);
+                 });
         return Arrays.toString(randomStrings);
     }
 

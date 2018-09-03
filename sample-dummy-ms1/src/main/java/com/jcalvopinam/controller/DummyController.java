@@ -22,13 +22,42 @@
  * SOFTWARE.
  */
 
-package com.jcalvopinam.service;
+package com.jcalvopinam.controller;
+
+import com.jcalvopinam.service.DummyService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @author Juan Calvopina M. <juan.calvopina@gmail.com>
  */
-public interface DummyService {
-    Integer generateRandomNumbers();
+@RestController
+@RequestMapping("/api")
+public class DummyController {
 
-    String generateRandomWords();
+    private static final Logger LOGGER = LoggerFactory.getLogger(DummyController.class);
+
+    private final DummyService dummyService;
+
+    @Autowired
+    public DummyController(DummyService dummyService) {
+        this.dummyService = dummyService;
+    }
+
+    @GetMapping("/random_numbers")
+    public Integer getRandomNumbers() {
+        LOGGER.info("Generating a new random number");
+        return dummyService.generateRandomNumbers();
+    }
+
+    @GetMapping("/random_words")
+    public String getRandomWords() {
+        LOGGER.info("Generating a new random number");
+        return dummyService.generateRandomWords();
+    }
+
 }
