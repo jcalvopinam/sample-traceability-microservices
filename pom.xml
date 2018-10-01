@@ -12,7 +12,7 @@
     <description>Sample of traceability of microservices with Sleuth, Zipkin and Spring Boot</description>
 
     <modules>
-        <module>sample-dummy-ms1</module>
+        <module>sample-random-ms1</module>
         <module>sample-sleuth-zipkin</module>
     </modules>
 

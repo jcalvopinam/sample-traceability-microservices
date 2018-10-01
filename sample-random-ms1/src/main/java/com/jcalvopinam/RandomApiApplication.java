@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DummyApiApplication {
+public class RandomApiApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(DummyApiApplication.class, args);
+        SpringApplication.run(RandomApiApplication.class, args);
     }
 
 }

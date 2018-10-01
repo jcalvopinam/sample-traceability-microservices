@@ -3,12 +3,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>dummy-ms1</artifactId>
+    <artifactId>random-ms1</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>sample-dummy-ms1</name>
-    <description>Dummy api to be used from sleuth as part of the sample</description>
+    <name>sample-random-ms1</name>
+    <description>Dummy api to be used from sleuth as part of the sample. This generates random numbers and words</description>
 
     <parent>
         <groupId>com.jcalvopinam</groupId>

@@ -24,7 +24,7 @@
 
 package com.jcalvopinam.controller;
 
-import com.jcalvopinam.service.DummyService;
+import com.jcalvopinam.service.RandomService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,27 +37,27 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/api")
-public class DummyController {
+public class RandomController {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(DummyController.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(RandomController.class);
 
-    private final DummyService dummyService;
+    private final RandomService randomService;
 
     @Autowired
-    public DummyController(DummyService dummyService) {
-        this.dummyService = dummyService;
+    public RandomController(RandomService randomService) {
+        this.randomService = randomService;
     }
 
     @GetMapping("/random_numbers")
     public Integer getRandomNumbers() {
         LOGGER.info("Generating a new random number");
-        return dummyService.generateRandomNumbers();
+        return randomService.generateRandomNumbers();
     }
 
     @GetMapping("/random_words")
     public String getRandomWords() {
         LOGGER.info("Generating a new random number");
-        return dummyService.generateRandomWords();
+        return randomService.generateRandomWords();
     }
 
 }

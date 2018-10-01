@@ -24,45 +24,11 @@
 
 package com.jcalvopinam.service;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Service;
-
-import java.util.Arrays;
-import java.util.Random;
-import java.util.stream.IntStream;
-
 /**
  * @author Juan Calvopina M. <juan.calvopina@gmail.com>
  */
-@Service
-public class DummyServiceImpl implements DummyService {
+public interface RandomService {
+    Integer generateRandomNumbers();
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(DummyServiceImpl.class);
-
-    private Random random = new Random();
-
-    @Override
-    public Integer generateRandomNumbers() {
-        LOGGER.info("Generating a new random number");
-        return Math.abs(random.nextInt());
-    }
-
-    @Override
-    public String generateRandomWords() {
-        LOGGER.info("Generating a new random word");
-        int endExclusive = 5;
-        String[] randomStrings = new String[endExclusive];
-
-        int startInclusive = 0;
-        IntStream.range(startInclusive, endExclusive)
-                 .forEach(i -> {
-                     char[] word = new char[random.nextInt(8) + 3];
-                     IntStream.range(0, word.length)
-                              .forEach(j -> word[j] = (char) ('a' + random.nextInt(26)));
-                     randomStrings[i] = new String(word);
-                 });
-        return Arrays.toString(randomStrings);
-    }
-
+    String generateRandomWords();
 }

@@ -24,12 +24,14 @@
 
 package com.jcalvopinam.controller;
 
+import com.jcalvopinam.service.ExchangeService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
@@ -42,10 +44,13 @@ import org.springframework.web.client.RestTemplate;
 public class Endpoint {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Endpoint.class);
-    private static final String URL_SAMPLE_DUMMY_MS_1_API_RANDOM_NUMBERS = "http://localhost:8080/sample_dummy_ms_1/api/random_numbers";
-    private static final String URL_SAMPLE_DUMMY_MS_1_API_RANDOM_WORDS = "http://localhost:8080/sample_dummy_ms_1/api/random_words";
+    private static final String URL_SAMPLE_MS_1_API_RANDOM_NUMBERS = "http://localhost:8080/sample_random_ms_1/api/random_numbers";
+    private static final String URL_SAMPLE_MS_1_API_RANDOM_WORDS = "http://localhost:8080/sample_random_ms_1/api/random_words";
 
     private final RestTemplate restTemplate;
+
+    @Autowired
+    private ExchangeService exchangeService;
 
     @Autowired
     public Endpoint(RestTemplate restTemplate) {
@@ -61,14 +66,14 @@ public class Endpoint {
     @GetMapping("/random_numbers")
     public ResponseEntity<Integer> getRandomNumbers() {
         LOGGER.info("Getting random numbers");
-        return restTemplate.exchange(URL_SAMPLE_DUMMY_MS_1_API_RANDOM_NUMBERS, HttpMethod.GET, null,
+        return restTemplate.exchange(URL_SAMPLE_MS_1_API_RANDOM_NUMBERS, HttpMethod.GET, null,
                                      Integer.class, 1L);
     }
 
     @GetMapping("/random_words")
     public ResponseEntity<String> getRandomWords() {
         LOGGER.info("Getting random words");
-        return restTemplate.exchange(URL_SAMPLE_DUMMY_MS_1_API_RANDOM_WORDS, HttpMethod.GET, null,
+        return restTemplate.exchange(URL_SAMPLE_MS_1_API_RANDOM_WORDS, HttpMethod.GET, null,
                                      String.class, 1L);
     }
 

@@ -27,7 +27,7 @@ http://localhost:9411/zipkin/
 [INFO] Reactor Summary:
 [INFO]
 [INFO] sample-traceability-microservices .................. SUCCESS [  0.990 s]
-[INFO] sample-dummy-ms1 ................................... SUCCESS [  2.470 s]
+[INFO] sample-random-ms1 ................................... SUCCESS [  2.470 s]
 [INFO] sample-sleuth-zipkin ............................... SUCCESS [  1.281 s]
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
@@ -35,7 +35,7 @@ http://localhost:9411/zipkin/
 ```
 * Run the flowing main classes:
 ```
-com.jcalvopinam.DummyApiApplication.java
+com.jcalvopinam.Random`ApiApplication.java
 com.jcalvopinam.SampleSleuthZipkinApplication.java
 ```
 
