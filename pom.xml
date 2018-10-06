@@ -12,6 +12,7 @@
     <description>Sample of traceability of microservices with Sleuth, Zipkin and Spring Boot</description>
 
     <modules>
+        <module>sample-money-exchange</module>
         <module>sample-random-ms1</module>
         <module>sample-sleuth-zipkin</module>
     </modules>
@@ -20,7 +21,7 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.0.4.RELEASE</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath/>
     </parent>
 
     <properties>

@@ -77,4 +77,16 @@ public class Endpoint {
                                      String.class, 1L);
     }
 
+    @GetMapping("/convert-dollar-euro/{dollar}")
+    public ResponseEntity<Double> convertDollarToEuro(@PathVariable("dollar") Double dollar) {
+        LOGGER.info("Converting to Euros");
+        return ResponseEntity.ok().body(exchangeService.dollarToEuro(dollar));
+    }
+
+    @GetMapping("/convert-euro-dollar/{euro}")
+    public ResponseEntity<Double> convertEuroToDollar(@PathVariable("euro") Double euro) {
+        LOGGER.info("Converting to Dollars");
+        return ResponseEntity.ok().body(exchangeService.euroToDollar(euro));
+    }
+
 }

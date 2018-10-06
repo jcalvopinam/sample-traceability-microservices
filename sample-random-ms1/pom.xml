@@ -8,7 +8,7 @@
     <packaging>jar</packaging>
 
     <name>sample-random-ms1</name>
-    <description>Dummy api to be used from sleuth as part of the sample. This generates random numbers and words</description>
+    <description>Dummy API to generate random numbers and words. It will be used from sleuth</description>
 
     <parent>
         <groupId>com.jcalvopinam</groupId>
